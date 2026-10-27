@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Explorer | Discover Your Next Read</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo">Book<span>Explorer.</span></div>
+            <div class="nav-label">YOUR NEXT CHAPTER STARTS HERE</div>
+        </nav>
+
+        <section class="hero-content">
+            <p class="eyebrow">A WORLD OF STORIES</p>
+            <h1>Find your next<br><span>great read.</span></h1>
+            <p class="subtitle">
+                Explore books, discover authors, and find stories
+                that stay with you.
+            </p>
+
+            <form id="searchForm" class="search-box">
+                <span class="search-icon">⌕</span>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by book title or author..."
+                    aria-label="Search books"
+                    required
+                >
+                <button type="submit" id="searchBtn">Discover</button>
+            </form>
+
+            <p class="hint">Try: Harry Potter, Python, or J. K. Rowling</p>
+        </section>
+    </header>
+
+    <main class="container">
+        <section class="results-header">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL BOOKSHELF</p>
+                <h2 id="resultsTitle">Explore the library</h2>
+                <p id="status" role="status">
+                    Search for a book to get started.
+                </p>
+            </div>
+
+            <div class="sort-area">
+                <label for="sortSelect">Sort by</label>
+                <select id="sortSelect">
+                    <option value="relevance">Relevance</option>
+                    <option value="newest">Newest first</option>
+                    <option value="oldest">Oldest first</option>
+                    <option value="title">Title (A–Z)</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="bookGrid" class="book-grid">
+            <div class="welcome-card">
+                <div class="welcome-icon">📚</div>
+                <h3>Your next favorite book awaits.</h3>
+                <p>Enter a title or author above to explore the library.</p>
+            </div>
+        </section>
+
+        <div class="pagination">
+            <button id="prevBtn" disabled>← Previous</button>
+            <span id="pageLabel">Page 1</span>
+            <button id="nextBtn" disabled>Next →</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Book Explorer · Powered by the
+            <a href="https://openlibrary.org/" target="_blank"
+               rel="noopener noreferrer">Open Library API</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
