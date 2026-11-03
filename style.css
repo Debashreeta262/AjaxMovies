@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+    --background: #10141b;
+    --surface: #171d26;
+    --surface-light: #202936;
+    --text: #f4f7fb;
+    --muted: #9da8b8;
+    --accent: #ffbf69;
+    --accent-dark: #b9672c;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text);
+    background: radial-gradient(circle at 80% 0%, #293649 0, transparent 34rem), var(--background);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.page-shell { width: min(100% - 2rem, 960px); margin: 0 auto; padding: 4.5rem 0 3rem; }
+.site-header { text-align: center; }
+.eyebrow { margin: 0 0 1rem; color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .2em; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+h1 { margin: 0; font-size: clamp(2.7rem, 7vw, 5rem); letter-spacing: -.06em; line-height: .95; }
+.subtitle { margin: 1.25rem 0 0; color: var(--muted); font-size: 1.05rem; }
+.search-panel { max-width: 700px; margin: 3rem auto 2.5rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: 18px; background: rgba(23, 29, 38, .82); box-shadow: 0 20px 60px rgba(0, 0, 0, .18); }
+.search-panel h2 { margin: 0 0 1rem; font-size: 1rem; }
+.search-controls { display: flex; gap: .75rem; }
+input { width: 100%; min-width: 0; padding: .95rem 1rem; border: 1px solid var(--border); border-radius: 10px; outline: none; color: var(--text); background: var(--surface-light); font: inherit; }
+input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255, 191, 105, .14); }
+button { padding: 0 1.5rem; border: 0; border-radius: 10px; color: #24170c; background: var(--accent); cursor: pointer; font: 700 1rem 'DM Sans', sans-serif; transition: transform .2s, background .2s; }
+button:hover { background: #ffd18d; transform: translateY(-2px); }
+button:disabled { cursor: wait; opacity: .65; transform: none; }
+.movie-details { min-height: 260px; }
+.empty-state, .status-message { display: grid; place-items: center; min-height: 260px; padding: 2rem; border: 1px dashed var(--border); border-radius: 18px; color: var(--muted); text-align: center; }
+.empty-icon { display: block; margin-bottom: .75rem; font-size: 2.5rem; }
+.status-message.error { color: #ffaaa0; border-color: rgba(255, 170, 160, .3); }
+.movie-card { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); animation: reveal .45s ease both; }
+.poster, .poster-placeholder { width: 100%; aspect-ratio: 2 / 3; border-radius: 10px; object-fit: cover; background: var(--surface-light); }
+.poster-placeholder { display: grid; place-items: center; padding: 1rem; color: var(--muted); text-align: center; }
+.movie-heading { margin: 0; font-size: clamp(1.7rem, 4vw, 2.5rem); }
+.movie-year { margin: .4rem 0 1.25rem; color: var(--accent); font-weight: 700; }
+.plot { color: #d2d9e2; line-height: 1.7; }
+.movie-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem 1.25rem; margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.movie-info div { min-width: 0; }
+.movie-info dt { margin-bottom: .2rem; color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
+.movie-info dd { margin: 0; line-height: 1.4; overflow-wrap: anywhere; }
+.site-footer { padding: 0 1rem 2rem; color: #687586; text-align: center; font-size: .8rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@keyframes reveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 650px) { .page-shell { padding-top: 3rem; } .search-controls { flex-direction: column; } button { min-height: 48px; } .movie-card { grid-template-columns: 1fr; gap: 1.5rem; } .poster, .poster-placeholder { width: min(220px, 100%); margin: 0 auto; } .movie-info { grid-template-columns: 1fr; } }
