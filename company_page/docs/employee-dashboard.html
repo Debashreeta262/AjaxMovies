@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My dashboard &mdash; Meridian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand"><span class="mark">&#9679;</span> Meridian</a>
+    <nav class="nav-links">
+      <span id="whoami" style="color:var(--paper-dim); font-size:0.9rem;"></span>
+      <a href="#" class="btn btn-ghost btn-sm" id="logoutBtn">Log out</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell">
+  <div class="dash-header">
+    <div class="role-tag">Employee</div>
+    <h1 id="greeting">Welcome</h1>
+    <p>Your own record is always visible below. The staff directory unlocks once an admin grants you access.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-panel="profile">My profile</button>
+      <button class="tab-btn" data-panel="directory">Directory</button>
+    </div>
+  </div>
+
+  <section class="panel active" id="panel-profile">
+    <div class="card-grid" id="profileCards">
+      <div class="skeleton-line" style="height:70px"></div>
+      <div class="skeleton-line" style="height:70px"></div>
+      <div class="skeleton-line" style="height:70px"></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-directory">
+    <div id="directoryContent">
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line" style="width:70%"></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/employee.js"></script>
+</body>
+</html>

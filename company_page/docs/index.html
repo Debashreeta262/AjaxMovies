@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian &mdash; Employee Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand"><span class="mark">&#9679;</span> Meridian</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="login.html">Log in</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Create account</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="shell">
+      <div class="hero-eyebrow-free">Internal staff system</div>
+      <h1>One place to manage everyone on the team.</h1>
+      <p class="lede">Meridian keeps employee records straight: who's on staff, what they do, and who's allowed to see what. Admins get the full picture. Everyone else sees exactly as much as they've been given access to.</p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-primary">Register as an employee</a>
+        <a href="login.html" class="btn btn-ghost">I already have an account</a>
+      </div>
+
+      <div class="hero-figure">
+        <div class="stat">
+          <div class="num">2</div>
+          <div class="label">Account types &mdash; admin and employee</div>
+        </div>
+        <div class="stat">
+          <div class="num">1</div>
+          <div class="label">Directory, visible only once access is granted</div>
+        </div>
+        <div class="stat">
+          <div class="num">100%</div>
+          <div class="label">Of admin records stay private, always</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <h2>Built around two roles</h2>
+      <p class="lede">The portal behaves differently depending on who's signed in &mdash; not by asking, but by checking what your account is actually allowed to do.</p>
+
+      <div class="role-grid">
+        <div class="role-card">
+          <h3>For employees</h3>
+          <p>Register, sign in, and manage your own profile. You can always see your own details in full.</p>
+          <ul>
+            <li>View and keep your own record up to date</li>
+            <li>See the staff directory once an admin turns it on for you</li>
+            <li>Never see admin accounts or admin-only data</li>
+          </ul>
+          <a href="register.html" class="btn btn-ghost btn-sm">Register &rarr;</a>
+        </div>
+        <div class="role-card">
+          <h3>For admins</h3>
+          <p>Sign in with an administrator account to see every record and control who can see what.</p>
+          <ul>
+            <li>View full details for every employee</li>
+            <li>Grant or revoke directory access per person</li>
+            <li>Suspend or remove accounts</li>
+          </ul>
+          <a href="login.html" class="btn btn-ghost btn-sm">Admin log in &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <h2>How access works</h2>
+      <p class="lede">A short version of the rule the whole system runs on.</p>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="k">Step 1</div>
+          <div class="v">You register and log in as an employee by default.</div>
+        </div>
+        <div class="info-card">
+          <div class="k">Step 2</div>
+          <div class="v">Your dashboard shows your own record. The directory stays locked.</div>
+        </div>
+        <div class="info-card">
+          <div class="k">Step 3</div>
+          <div class="v">An admin flips your access on. The directory unlocks for you &mdash; admin accounts still excluded.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">Meridian Employee Portal &mdash; built with Node, Express, MongoDB and vanilla JS.</div>
+</footer>
+
+<script src="js/api.js"></script>
+<script>
+  // Swap the nav for a returning, logged-in user
+  (function () {
+    const user = Auth.getUser();
+    if (user && Auth.isLoggedIn()) {
+      const nav = document.getElementById('navLinks');
+      nav.innerHTML = `<a href="${user.role === 'admin' ? 'admin-dashboard.html' : 'employee-dashboard.html'}" class="btn btn-primary btn-sm">Go to dashboard</a>`;
+    }
+  })();
+</script>
+</body>
+</html>
